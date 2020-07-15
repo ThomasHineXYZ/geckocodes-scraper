@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup;
 import os;
+import sys;
 import tarfile;
 import tempfile;
 import time;
@@ -75,7 +76,11 @@ txtDownloadUrl = "https://www.geckocodes.org/txt.php?txt=";
 
 for url in urls:
     # Connect to the URL
-    response = urllib.request.urlopen(urls[url]['url']).read();
+    response = urllib.request.urlopen(urls[url]['url']);
+
+    # If one of the pages doesn't load up successfully, just kill the program
+    if response.code != 200:
+        sys.exit(1);
 
     # Parse HTML and save to BeautifulSoup object
     soup = BeautifulSoup(response, "html.parser");
