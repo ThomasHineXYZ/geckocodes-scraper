@@ -8,10 +8,10 @@ import urllib.request
 
 # URLs to scrape
 urls = {
-    'Wii': {
-        'folder': 'wii',
-        'url': 'https://www.geckocodes.org/index.php?chid=R&r=*&l=all'
-    },
+    # 'Wii': {
+    #     'folder': 'wii',
+    #     'url': 'https://www.geckocodes.org/index.php?chid=R&r=*&l=all'
+    # },
     # 'WiiWare': {
     #     'folder': 'wii_ware',
     #     'url': 'https://www.geckocodes.org/index.php?chid=W&r=*&l=all' # NOTE Commented all of this out for testing purposes
@@ -20,10 +20,10 @@ urls = {
     #     'folder': 'virtual_console_arcade',
     #     'url': 'https://www.geckocodes.org/index.php?chid=D&r=*&l=all'
     # },
-    # 'Wii Channels': {
-    #     'folder': 'wii_channels',
-    #     'url': 'https://www.geckocodes.org/index.php?chid=H&r=*&l=all'
-    # },
+    'Wii Channels': {
+        'folder': 'wii_channels',
+        'url': 'https://www.geckocodes.org/index.php?chid=H&r=*&l=all'
+    },
     # 'Gamecube': {
     #     'folder': 'gamecube',
     #     'url': 'https://www.geckocodes.org/index.php?chid=G&r=*&l=all'
@@ -101,4 +101,4 @@ for url in urls:
     # NOTE need to add in compression and more "permanent" storage of the files
 
     # Close the temp directory to clean up the files
-    tempDirectory.close();
+    tempDirectory.cleanup();
