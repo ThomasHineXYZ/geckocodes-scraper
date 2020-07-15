@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
+from bs4 import BeautifulSoup;
 import requests;
 import time;
-from bs4 import BeautifulSoup;
+import urllib.request
 
 # URLs to scrape
 urls = {
@@ -77,10 +78,17 @@ for url in urls:
     # Parse HTML and save to BeautifulSoup object
     soup = BeautifulSoup(response.text, "html.parser");
 
+    # Iterate through each of the games listed
     for link in soup.find("div", class_="list").findAll("a"):
+        # Grab just the hyperlink, since thats all we are interested in
         cheatLink = link.get('href');
 
         # Chop off the index.php part
         titleId = cheatLink.replace("./index.php?c=", "");
 
+        # NOTE Print it for good measure. Might remove this later.
         print(txtDownloadUrl + titleId);
+
+        # Finally save the resulting text file
+        response = urllib.request.urlretrieve(txtDownloadUrl + titleId, "txtcodes/" + titleId + ".txt");
+        sleep(0.1);
