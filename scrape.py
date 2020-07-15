@@ -68,6 +68,8 @@ urls = {
     },
 };
 
+txtDownloadUrl = "https://www.geckocodes.org/txt.php?txt=";
+
 for url in urls:
     # Connect to the URL
     response = requests.get(urls[url]['url']);
@@ -76,6 +78,9 @@ for url in urls:
     soup = BeautifulSoup(response.text, "html.parser");
 
     for link in soup.find("div", class_="list").findAll("a"):
-        # print(link.get('href'));
-        print(link.get('title'));
-        # time.sleep(0.5); # For testing
+        cheatLink = link.get('href');
+
+        # Chop off the index.php part
+        titleId = cheatLink.replace("./index.php?c=", "");
+
+        print(txtDownloadUrl + titleId);
