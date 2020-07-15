@@ -1,0 +1,11 @@
+{
+    "folders":
+    [
+        {
+            "name": "GeckoCodes Scraper",
+            "path": ".",
+            "file_exclude_patterns": ["*.sublime-project"],
+            "folder_exclude_patterns": [],
+        }
+    ]
+}
