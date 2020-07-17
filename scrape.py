@@ -8,6 +8,11 @@ import tempfile;
 import time;
 import urllib.request
 
+# Change to the scripts location. Helps with running it through CRON.
+abspath = os.path.abspath(__file__);
+dname = os.path.dirname(abspath);
+os.chdir(dname);
+
 # URLs to scrape
 urls = {
     'Wii': {
